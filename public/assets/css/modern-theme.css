@@ -1,0 +1,371 @@
+/* Modern PPDB Theme - Cyan & Pink Gradient */
+
+:root {
+    /* Primary Colors - Teal (Soft) */
+    --primary: #5eead4;
+    --primary-light: #7ee8d9;
+    --primary-dark: #14b8a6;
+    --primary-darker: #0d9488;
+    
+    /* Accent Colors - Purple (Soft) */
+    --accent: #f0abfc;
+    --accent-light: #f5c3ff;
+    --accent-dark: #d946ef;
+    
+    /* Status Colors */
+    --success: #6ee7b7;
+    --success-light: #a7f3d0;
+    --danger: #fca5a5;
+    --danger-light: #fecaca;
+    --warning: #fde047;
+    --warning-light: #fef08a;
+    --info: #93c5fd;
+    --info-light: #bfdbfe;
+    
+    /* Neutral Colors */
+    --dark: #1f2937;
+    --dark-light: #374151;
+    --light: #f9fafb;
+    --light-gray: #f3f4f6;
+    --gray: #9ca3af;
+    --gray-light: #e5e7eb;
+    --gray-lighter: #d1d5db;
+    --white: #ffffff;
+}
+
+/* Global Transitions */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Glassmorphism Effect */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(135deg, #5eead4 0%, #f0abfc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-primary {
+    background: linear-gradient(135deg, #5eead4 0%, #14b8a6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-accent {
+    background: linear-gradient(135deg, #f0abfc 0%, #d946ef 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Gradient Background */
+.gradient-bg {
+    background: linear-gradient(135deg, #5eead4 0%, #14b8a6 100%);
+    color: white;
+}
+
+.gradient-bg-accent {
+    background: linear-gradient(135deg, #f0abfc 0%, #d946ef 100%);
+    color: white;
+}
+
+.gradient-bg-dark {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+}
+
+/* Shadow Effects */
+.shadow-sm-modern {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.shadow-md-modern {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.shadow-lg-modern {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.shadow-xl-modern {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.shadow-cyan {
+    box-shadow: 0 4px 20px rgba(94, 234, 212, 0.3);
+}
+
+.shadow-pink {
+    box-shadow: 0 4px 20px rgba(240, 171, 252, 0.3);
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+}
+
+.hover-glow-cyan {
+    transition: box-shadow 0.3s;
+}
+
+.hover-glow-cyan:hover {
+    box-shadow: 0 8px 24px rgba(94, 234, 212, 0.25);
+}
+
+.hover-glow-pink {
+    transition: box-shadow 0.3s;
+}
+
+.hover-glow-pink:hover {
+    box-shadow: 0 8px 24px rgba(240, 171, 252, 0.25);
+}
+
+/* Status Badge */
+.badge-modern {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+    border: 1px solid;
+}
+
+.badge-success-modern {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
+    color: #059669;
+    border-color: rgba(16, 185, 129, 0.3);
+}
+
+.badge-danger-modern {
+    background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(239, 68, 68, 0.05) 100%);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, 0.3);
+}
+
+.badge-warning-modern {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(245, 158, 11, 0.05) 100%);
+    color: #b45309;
+    border-color: rgba(245, 158, 11, 0.3);
+}
+
+.badge-info-modern {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+    color: #0891b2;
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* Modern Button Variants */
+.btn-modern {
+    border-radius: 10px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-modern-primary {
+    background: linear-gradient(135deg, #5eead4 0%, #14b8a6 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(94, 234, 212, 0.3);
+}
+
+.btn-modern-primary:hover {
+    background: linear-gradient(135deg, #7ee8d9 0%, #5eead4 100%);
+    box-shadow: 0 8px 20px rgba(94, 234, 212, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-modern-accent {
+    background: linear-gradient(135deg, #f0abfc 0%, #d946ef 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(240, 171, 252, 0.3);
+}
+
+.btn-modern-accent:hover {
+    background: linear-gradient(135deg, #f5c3ff 0%, #f0abfc 100%);
+    box-shadow: 0 8px 20px rgba(240, 171, 252, 0.4);
+    transform: translateY(-2px);
+}
+
+.btn-modern-outline {
+    background: transparent;
+    border: 2px solid #5eead4;
+    color: #5eead4;
+    box-shadow: none;
+}
+
+.btn-modern-outline:hover {
+    background: rgba(94, 234, 212, 0.1);
+    border-color: #14b8a6;
+    color: #14b8a6;
+}
+
+.btn-modern-ghost {
+    background: transparent;
+    border: none;
+    color: #06b6d4;
+    box-shadow: none;
+}
+
+.btn-modern-ghost:hover {
+    background: rgba(6, 182, 212, 0.1);
+    color: #0891b2;
+}
+
+/* Modern Input Styling */
+.input-modern {
+    border: 1.5px solid var(--gray-light);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    transition: all 0.3s;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.input-modern:focus {
+    border-color: #06b6d4;
+    box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+    background: white;
+    outline: none;
+}
+
+.input-modern::placeholder {
+    color: var(--gray);
+    opacity: 0.7;
+}
+
+/* Modern Card Variants */
+.card-modern {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-modern:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: rgba(6, 182, 212, 0.3);
+}
+
+.card-modern-gradient {
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+}
+
+/* Stat Card Modern */
+.stat-modern {
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-left: 4px solid #06b6d4;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-modern:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.stat-modern.accent {
+    border-left-color: #ec4899;
+}
+
+.stat-modern.success {
+    border-left-color: #10b981;
+}
+
+.stat-modern.danger {
+    border-left-color: #ef4444;
+}
+
+.stat-modern.warning {
+    border-left-color: #f59e0b;
+}
+
+/* Utility Classes */
+.text-gradient {
+    background: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.border-gradient {
+    border-image: linear-gradient(135deg, #06b6d4 0%, #ec4899 100%);
+    border-image-slice: 1;
+}
+
+.divider-modern {
+    height: 2px;
+    background: linear-gradient(90deg, rgba(6, 182, 212, 0.2) 0%, rgba(6, 182, 212, 0) 100%);
+    border: none;
+    margin: 20px 0;
+}
+
+/* Loading Animation */
+@keyframes spin-modern {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.spinner-modern {
+    animation: spin-modern 1s linear infinite;
+}
+
+@keyframes pulse-modern {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+.pulse-modern {
+    animation: pulse-modern 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Fade In Animation */
+@keyframes fadeInModern {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-modern {
+    animation: fadeInModern 0.3s ease-out;
+}

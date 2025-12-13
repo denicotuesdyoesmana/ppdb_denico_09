@@ -6,6 +6,7 @@ use App\Models\Pembayaran;
 use App\Models\Pendaftaran;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class AdminPembayaranController extends Controller
 {
@@ -158,14 +159,14 @@ class AdminPembayaranController extends Controller
         } catch (\Exception $e) {
             // Return JSON jika request adalah AJAX
             if (request()->expectsJson()) {
-                \Log::error('Delete Pembayaran Error: ' . $e->getMessage());
+                Log::error('Delete Pembayaran Error: ' . $e->getMessage());
                 return response()->json([
                     'success' => false,
                     'message' => 'Gagal menghapus pembayaran: ' . $e->getMessage()
                 ], 500);
             }
             
-            \Log::error('Delete Pembayaran Error: ' . $e->getMessage());
+            Log::error('Delete Pembayaran Error: ' . $e->getMessage());
             return redirect()->back()
                            ->with('error', 'Gagal menghapus pembayaran: ' . $e->getMessage());
         }

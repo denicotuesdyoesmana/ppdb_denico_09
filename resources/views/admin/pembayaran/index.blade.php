@@ -367,9 +367,10 @@
         }
 
         .btn-group-sm {
-            display: flex;
-            flex-direction: column;
-            gap: 0.25rem;
+            display: inline-flex !important;
+            flex-direction: row !important;
+            gap: 0 !important;
+            flex-wrap: nowrap !important;
         }
 
         .btn-group-sm .btn {

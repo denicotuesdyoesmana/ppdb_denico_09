@@ -10,7 +10,12 @@ return new class extends Migration
     {
         if (Schema::hasTable('pembayaran') && !Schema::hasColumn('pembayaran', 'catatan')) {
             Schema::table('pembayaran', function (Blueprint $table) {
-                $table->text('catatan')->nullable()->after('status');
+                // Add catatan column - use after('id') as fallback if 'status' doesn't exist
+                if (Schema::hasColumn('pembayaran', 'status')) {
+                    $table->text('catatan')->nullable()->after('status');
+                } else {
+                    $table->text('catatan')->nullable();
+                }
             });
         }
     }

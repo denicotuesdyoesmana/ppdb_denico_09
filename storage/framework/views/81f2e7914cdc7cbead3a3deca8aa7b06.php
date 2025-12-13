@@ -175,21 +175,23 @@
                 Aksi Cepat
             </div>
             <div class="card-body">
-                <a href="<?php echo e(route('user.dokumen.create')); ?>" class="btn btn-primary w-100 mb-2">
-                    <i class="fas fa-cloud-upload-alt"></i> Upload Dokumen
-                </a>
-                <a href="<?php echo e(route('user.dokumen')); ?>" class="btn btn-outline-primary w-100 mb-2">
-                    <i class="fas fa-folder"></i> Kelola Dokumen
-                </a>
-                <?php if($pendaftaran && $pendaftaran->pembayaran && $pendaftaran->pembayaran->statusPembayaran && $pendaftaran->pembayaran->statusPembayaran->nama === 'LUNAS'): ?>
-                    <a href="<?php echo e(route('cetak.kartu', ['pendaftaranId' => $pendaftaran->id])); ?>" class="btn btn-outline-primary w-100">
-                        <i class="fas fa-print"></i> Cetak Kartu
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <a href="<?php echo e(route('user.dokumen.create')); ?>" class="quick-action-btn" title="Upload Dokumen">
+                        <i class="fas fa-eye"></i>
                     </a>
-                <?php else: ?>
-                    <button class="btn btn-outline-secondary w-100" disabled title="Pembayaran harus lunas untuk mencetak kartu">
-                        <i class="fas fa-print"></i> Cetak Kartu (Tunggu Pembayaran)
-                    </button>
-                <?php endif; ?>
+                    <a href="<?php echo e(route('user.dokumen')); ?>" class="quick-action-btn" title="Kelola Dokumen">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <?php if($pendaftaran && $pendaftaran->pembayaran && $pendaftaran->pembayaran->statusPembayaran && $pendaftaran->pembayaran->statusPembayaran->nama === 'LUNAS'): ?>
+                        <a href="<?php echo e(route('cetak.kartu', ['pendaftaranId' => $pendaftaran->id])); ?>" class="quick-action-btn" title="Cetak Kartu">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    <?php else: ?>
+                        <button class="quick-action-btn" disabled title="Pembayaran harus lunas untuk mencetak kartu">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
     </div>

@@ -6,6 +6,7 @@ use App\Models\Biodata;
 use App\Models\Siswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BiodataController extends Controller
 {
@@ -35,9 +36,14 @@ class BiodataController extends Controller
         // Validasi berdasarkan pilihan jenis pendamping
         $jenisPendamping = $request->input('jenis_pendamping', 'ortu');
         
+        // Cek apakah biodata sudah ada untuk user ini
+        $existingBiodata = Biodata::where('user_id', Auth::id())->first();
+        
         $baseRules = [
             'nama_lengkap' => 'required',
-            'nisn' => 'required|unique:biodatas,nisn',
+            'nisn' => $existingBiodata 
+                ? 'required|unique:biodatas,nisn,' . $existingBiodata->id 
+                : 'required|unique:biodatas,nisn',
             'nik' => 'required',
             'tempat_lahir' => 'required',
             'tanggal_lahir' => 'required|date',
@@ -49,7 +55,9 @@ class BiodataController extends Controller
             'asal_sekolah' => 'required',
             'tahun_lulus' => 'required|numeric|digits:4',
             'npsn' => 'nullable|numeric',
-            'foto' => 'nullable|image|max:2048',
+            'foto' => $existingBiodata && $existingBiodata->foto
+                ? 'nullable|image|max:2048'  // Opsional jika sudah ada foto
+                : 'required|image|max:2048', // Wajib jika belum ada foto
             'jenis_pendamping' => 'required|in:ortu,wali',
         ];
 
@@ -81,8 +89,30 @@ class BiodataController extends Controller
 
         $validated = $request->validate($baseRules, $customMessages);
 
+        // UPLOAD FOTO - dengan error handling yang lebih baik
         if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('foto_siswa', 'public');
+            try {
+                $file = $request->file('foto');
+                $validated['foto'] = $file->store('foto_siswa', 'public');
+                \Log::info('Biodata Foto Upload Success', [
+                    'user_id' => Auth::id(),
+                    'filename' => $validated['foto'],
+                    'original_name' => $file->getClientOriginalName(),
+                    'size' => $file->getSize(),
+                ]);
+            } catch (\Exception $e) {
+                \Log::error('Biodata Foto Upload Failed', [
+                    'user_id' => Auth::id(),
+                    'error' => $e->getMessage(),
+                ]);
+                throw $e;
+            }
+        } else {
+            // Jika tidak ada file, log warning
+            \Log::warning('Biodata Foto Not Provided', [
+                'user_id' => Auth::id(),
+                'request_files' => $request->files->keys(),
+            ]);
         }
 
         $validated['user_id'] = Auth::id();

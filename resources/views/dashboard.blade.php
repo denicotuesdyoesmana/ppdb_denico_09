@@ -175,21 +175,23 @@
                 Aksi Cepat
             </div>
             <div class="card-body">
-                <a href="{{ route('user.dokumen.create') }}" class="btn btn-primary w-100 mb-2">
-                    <i class="fas fa-cloud-upload-alt"></i> Upload Dokumen
-                </a>
-                <a href="{{ route('user.dokumen') }}" class="btn btn-outline-primary w-100 mb-2">
-                    <i class="fas fa-folder"></i> Kelola Dokumen
-                </a>
-                @if($pendaftaran && $pendaftaran->pembayaran && $pendaftaran->pembayaran->statusPembayaran && $pendaftaran->pembayaran->statusPembayaran->nama === 'LUNAS')
-                    <a href="{{ route('cetak.kartu', ['pendaftaranId' => $pendaftaran->id]) }}" class="btn btn-outline-primary w-100">
-                        <i class="fas fa-print"></i> Cetak Kartu
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                    <a href="{{ route('user.dokumen.create') }}" class="quick-action-btn" title="Upload Dokumen">
+                        <i class="fas fa-eye"></i>
                     </a>
-                @else
-                    <button class="btn btn-outline-secondary w-100" disabled title="Pembayaran harus lunas untuk mencetak kartu">
-                        <i class="fas fa-print"></i> Cetak Kartu (Tunggu Pembayaran)
-                    </button>
-                @endif
+                    <a href="{{ route('user.dokumen') }}" class="quick-action-btn" title="Kelola Dokumen">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    @if($pendaftaran && $pendaftaran->pembayaran && $pendaftaran->pembayaran->statusPembayaran && $pendaftaran->pembayaran->statusPembayaran->nama === 'LUNAS')
+                        <a href="{{ route('cetak.kartu', ['pendaftaranId' => $pendaftaran->id]) }}" class="quick-action-btn" title="Cetak Kartu">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    @else
+                        <button class="quick-action-btn" disabled title="Pembayaran harus lunas untuk mencetak kartu">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    @endif
+                </div>
             </div>
         </div>
     </div>

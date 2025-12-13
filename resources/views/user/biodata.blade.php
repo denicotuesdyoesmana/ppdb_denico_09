@@ -35,8 +35,13 @@
             @if($isSubmitted)
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     <i class="fas fa-info-circle me-2"></i>
-                    <strong>Data Sudah Tersimpan!</strong> Data biodata Anda sudah disimpan. Anda hanya bisa melihat data yang sudah diisi.
-                    Jika perlu mengubah, silakan hubungi admin.
+                    <strong>Data Sudah Tersimpan!</strong> Data biodata Anda sudah disimpan. 
+                    @if($biodata && !$biodata->foto)
+                        <strong class="text-danger">⚠️ NAMUN FOTO MASIH BELUM DIUPLOAD!</strong> Silakan upload foto diri Anda di bawah ini.
+                    @else
+                        Anda hanya bisa melihat data yang sudah diisi.
+                        Jika perlu mengubah, silakan hubungi admin.
+                    @endif
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             @endif
@@ -56,7 +61,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NISN</label>
-                        <input type="text" class="form-control" name="nisn" id="nisn" value="{{ old('nisn', $biodata->nisn ?? $siswa->nisn ?? '') }}" placeholder="Masukkan NISN" pattern="[0-9]*" inputmode="numeric" {{ $isSubmitted ? 'readonly' : 'required' }}>
+                        <input type="text" class="form-control" name="nisn" id="nisn" value="{{ old('nisn', $biodata->nisn ?? $siswa->nisn ?? '') }}" placeholder="Masukkan NISN" pattern="[0-9]*" inputmode="numeric" maxlength="10" {{ $isSubmitted ? 'readonly' : 'required' }}>
                         <small class="text-muted">Hanya angka (10 digit)</small>
                         @error('nisn')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -64,7 +69,7 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NIK</label>
-                        <input type="text" id="nik" class="form-control" name="nik" value="{{ old('nik', $biodata->nik ?? $siswa->nik ?? '') }}" placeholder="Masukkan NIK" pattern="[0-9]*" inputmode="numeric" {{ $isSubmitted ? 'readonly' : 'required' }}>
+                        <input type="text" id="nik" class="form-control" name="nik" value="{{ old('nik', $biodata->nik ?? $siswa->nik ?? '') }}" placeholder="Masukkan NIK" pattern="[0-9]*" inputmode="numeric" maxlength="16" {{ $isSubmitted ? 'readonly' : 'required' }}>
                         <small class="text-muted">Hanya angka (16 digit)</small>
                         <div id="nik-error" class="invalid-feedback d-none"></div>
                         @error('nik')
@@ -118,7 +123,7 @@
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">No. HP Siswa</label>
-                        <input type="tel" class="form-control" name="no_hp" id="no_hp" value="{{ old('no_hp', $biodata->no_hp ?? $siswa->no_telepon ?? '') }}" placeholder="08xxxxxxxxxx" pattern="[0-9]+" inputmode="numeric" {{ $isSubmitted ? 'readonly' : 'required' }}>
+                        <input type="tel" class="form-control" name="no_hp" id="no_hp" value="{{ old('no_hp', $biodata->no_hp ?? $siswa->no_telepon ?? '') }}" placeholder="08xxxxxxxxxx" pattern="[0-9]+" inputmode="numeric" maxlength="13" {{ $isSubmitted ? 'readonly' : 'required' }}>
                         <small class="text-muted">Hanya angka, contoh: 08xxxxxxxxxx</small>
                         @error('no_hp')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
@@ -207,7 +212,7 @@
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <label class="form-label" id="no_hp_label">No. HP Orang Tua</label>
-                        <input type="text" class="form-control" name="no_hp_wali" id="no_hp_wali" value="{{ old('no_hp_wali', $biodata->no_hp_wali ?? '') }}" placeholder="08xxxxxxxxxx" inputmode="numeric" {{ $isSubmitted ? 'readonly' : 'required' }}>
+                        <input type="text" class="form-control" name="no_hp_wali" id="no_hp_wali" value="{{ old('no_hp_wali', $biodata->no_hp_wali ?? '') }}" placeholder="08xxxxxxxxxx" inputmode="numeric" maxlength="13" {{ $isSubmitted ? 'readonly' : 'required' }}>
                         @error('no_hp_wali')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
@@ -227,8 +232,8 @@
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NPSN Sekolah</label>
-                        <input type="text" class="form-control" name="npsn" id="npsn" value="{{ old('npsn', $biodata->npsn ?? '') }}" placeholder="(jika ada)" pattern="[0-9]*" inputmode="numeric" {{ $isSubmitted ? 'readonly' : '' }}>
-                        <small class="text-muted">Hanya angka</small>
+                        <input type="text" class="form-control" name="npsn" id="npsn" value="{{ old('npsn', $biodata->npsn ?? '') }}" placeholder="(jika ada)" pattern="[0-9]*" inputmode="numeric" maxlength="8" {{ $isSubmitted ? 'readonly' : '' }}>
+                        <small class="text-muted">Hanya angka (8 digit)</small>
                         @error('npsn')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
@@ -247,20 +252,39 @@
                 <h5 class="fw-bold mb-3 text-primary">Upload Foto</h5>
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <label class="form-label">Foto Diri</label>
-                        <input type="file" class="form-control" name="foto" accept="image/*" onchange="previewImage(event)" {{ $isSubmitted ? 'disabled' : '' }}>
-                        <small class="text-muted">Maksimal 2MB | Format JPG/PNG</small>
+                        <label class="form-label">
+                            Foto Diri 
+                            @if(!($biodata && $biodata->foto))
+                                <span class="text-danger">*</span>
+                            @endif
+                        </label>
+                        <input type="file" class="form-control" name="foto" accept="image/*" onchange="previewImage(event)" 
+                            {{ ($isSubmitted && $biodata && $biodata->foto) ? 'disabled' : '' }}
+                            {{ (!($biodata && $biodata->foto)) ? 'required' : '' }}>
+                        <small class="text-muted">Maksimal 2MB | Format JPG/PNG | 
+                            @if(!($biodata && $biodata->foto))
+                                Wajib diisi
+                            @else
+                                Opsional (untuk update)
+                            @endif
+                        </small>
                         @error('foto')
                             <div class="invalid-feedback d-block">{{ $message }}</div>
                         @enderror
                     </div>
                     <div class="col-md-6 text-center">
+                        @if($biodata && $biodata->foto)
+                            <div class="mb-2">
+                                <small class="text-muted d-block mb-2">Foto Saat Ini:</small>
+                                <img src="{{ asset('storage/' . $biodata->foto) }}" alt="Foto Saat Ini" class="img-thumbnail" style="max-width: 200px; height: 200px; object-fit: cover;">
+                            </div>
+                        @endif
                         <img id="preview" src="#" alt="Preview Foto" class="img-thumbnail mt-2" style="max-width: 200px; display:none;">
                     </div>
                 </div>
 
                 <div class="text-end">
-                    @if(!$isSubmitted)
+                    @if(!$isSubmitted || ($isSubmitted && $biodata && !$biodata->foto))
                         <button type="submit" class="btn btn-primary px-4" {{ $formulirBelumDiisi ? 'disabled' : '' }}>
                             <i class="bi bi-save"></i> Simpan Data
                         </button>
@@ -268,10 +292,14 @@
                             <small class="text-danger d-block mt-2">
                                 <i class="fas fa-lock me-1"></i>Tombol simpan dinonaktifkan sampai Anda isi Formulir Pendaftaran
                             </small>
+                        @elseif($isSubmitted && $biodata && !$biodata->foto)
+                            <small class="text-warning d-block mt-2">
+                                <i class="fas fa-warning me-1"></i>Foto belum diupload. Silakan upload foto untuk melanjutkan.
+                            </small>
                         @endif
                     @else
                         <span class="text-muted">
-                            <i class="fas fa-check-circle text-success me-2"></i>Data sudah tersimpan
+                            <i class="fas fa-check-circle text-success me-2"></i>Data sudah tersimpan lengkap
                         </span>
                     @endif
                 </div>

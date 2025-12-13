@@ -112,7 +112,7 @@
                     <div class="mb-3">
                         <label class="form-label">Rata-rata Nilai Raport <span class="text-danger">*</span></label>
                         <input type="number" name="rata_nilai" step="0.01" class="form-control @error('rata_nilai') is-invalid @enderror" 
-                               value="{{ old('rata_nilai', optional($pendaftaran)->rata_nilai ?? '') }}" {{ $isSubmitted ? 'readonly' : 'required' }}>
+                               value="{{ old('rata_nilai', optional($pendaftaran)->rata_nilai ? floatval(optional($pendaftaran)->rata_nilai) : '') }}" {{ $isSubmitted ? 'readonly' : 'required' }}>
                         @error('rata_nilai')
                             <small class="text-danger">{{ $message }}</small>
                         @enderror
@@ -151,6 +151,14 @@
     }
 </style>
 <script>
-    // Script removed - simplified to single jurusan field
+    // Remove trailing zeros from rata_nilai input on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const rataNilaiInput = document.querySelector('input[name="rata_nilai"]');
+        if (rataNilaiInput && rataNilaiInput.value) {
+            // Parse value as float and convert back to string to remove trailing zeros
+            const numValue = parseFloat(rataNilaiInput.value);
+            rataNilaiInput.value = numValue.toString();
+        }
+    });
 </script>
 @endsection

@@ -114,7 +114,7 @@
                                 <input type="text" name="nomor_rekening" id="nomor_rekening" 
                                        class="form-control @error('nomor_rekening') is-invalid @enderror"
                                        placeholder="Contoh: 1234567890" value="{{ old('nomor_rekening') }}"
-                                       inputmode="numeric" required>
+                                       inputmode="numeric" maxlength="20" required>
                                 <small class="text-muted d-block mt-1">Hanya angka</small>
                                 @error('nomor_rekening')
                                     <div class="invalid-feedback d-block">{{ $message }}</div>

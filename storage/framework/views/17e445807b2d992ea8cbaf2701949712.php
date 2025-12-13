@@ -62,7 +62,7 @@
                                 </span>
                             </td>
                             <td style="padding: 15px;">
-                                <div style="display: flex; flex-direction: column; gap: 6px;">
+                                <div style="display: flex; flex-direction: row; gap: 6px; align-items: center;">
                                     <div style="font-size: 12px; color: #6b7280;">
                                         <span style="color: #10b981; font-weight: 600;">✓ <?php echo e($terverifikasi); ?></span> | 
                                         <span style="color: #ef4444; font-weight: 600;">✗ <?php echo e($ditolak); ?></span> | 

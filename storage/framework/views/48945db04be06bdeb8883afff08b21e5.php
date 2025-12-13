@@ -153,7 +153,7 @@ if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>"
                                        placeholder="Contoh: 1234567890" value="<?php echo e(old('nomor_rekening')); ?>"
-                                       inputmode="numeric" required>
+                                       inputmode="numeric" maxlength="20" required>
                                 <small class="text-muted d-block mt-1">Hanya angka</small>
                                 <?php $__errorArgs = ['nomor_rekening'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');

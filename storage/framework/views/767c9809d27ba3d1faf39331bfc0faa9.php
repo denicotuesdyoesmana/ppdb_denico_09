@@ -148,7 +148,7 @@ $message = $__bag->first($__errorArgs[0]); ?> is-invalid <?php unset($message);
 if (isset($__messageOriginal)) { $message = $__messageOriginal; }
 endif;
 unset($__errorArgs, $__bag); ?>" 
-                               value="<?php echo e(old('rata_nilai', optional($pendaftaran)->rata_nilai ?? '')); ?>" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
+                               value="<?php echo e(old('rata_nilai', optional($pendaftaran)->rata_nilai ? floatval(optional($pendaftaran)->rata_nilai) : '')); ?>" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
                         <?php $__errorArgs = ['rata_nilai'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -194,7 +194,15 @@ unset($__errorArgs, $__bag); ?>
     }
 </style>
 <script>
-    // Script removed - simplified to single jurusan field
+    // Remove trailing zeros from rata_nilai input on page load
+    document.addEventListener('DOMContentLoaded', function() {
+        const rataNilaiInput = document.querySelector('input[name="rata_nilai"]');
+        if (rataNilaiInput && rataNilaiInput.value) {
+            // Parse value as float and convert back to string to remove trailing zeros
+            const numValue = parseFloat(rataNilaiInput.value);
+            rataNilaiInput.value = numValue.toString();
+        }
+    });
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.master', array_diff_key(get_defined_vars(), ['__data' => 1, '__path' => 1]))->render(); ?><?php /**PATH C:\ppdb_denico_09\resources\views/user/formulir.blade.php ENDPATH**/ ?>

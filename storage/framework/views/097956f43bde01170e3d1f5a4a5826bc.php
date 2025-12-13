@@ -34,8 +34,13 @@
             <?php if($isSubmitted): ?>
                 <div class="alert alert-info alert-dismissible fade show" role="alert">
                     <i class="fas fa-info-circle me-2"></i>
-                    <strong>Data Sudah Tersimpan!</strong> Data biodata Anda sudah disimpan. Anda hanya bisa melihat data yang sudah diisi.
-                    Jika perlu mengubah, silakan hubungi admin.
+                    <strong>Data Sudah Tersimpan!</strong> Data biodata Anda sudah disimpan. 
+                    <?php if($biodata && !$biodata->foto): ?>
+                        <strong class="text-danger">⚠️ NAMUN FOTO MASIH BELUM DIUPLOAD!</strong> Silakan upload foto diri Anda di bawah ini.
+                    <?php else: ?>
+                        Anda hanya bisa melihat data yang sudah diisi.
+                        Jika perlu mengubah, silakan hubungi admin.
+                    <?php endif; ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
                 </div>
             <?php endif; ?>
@@ -62,7 +67,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NISN</label>
-                        <input type="text" class="form-control" name="nisn" id="nisn" value="<?php echo e(old('nisn', $biodata->nisn ?? $siswa->nisn ?? '')); ?>" placeholder="Masukkan NISN" pattern="[0-9]*" inputmode="numeric" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
+                        <input type="text" class="form-control" name="nisn" id="nisn" value="<?php echo e(old('nisn', $biodata->nisn ?? $siswa->nisn ?? '')); ?>" placeholder="Masukkan NISN" pattern="[0-9]*" inputmode="numeric" maxlength="10" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
                         <small class="text-muted">Hanya angka (10 digit)</small>
                         <?php $__errorArgs = ['nisn'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -77,7 +82,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NIK</label>
-                        <input type="text" id="nik" class="form-control" name="nik" value="<?php echo e(old('nik', $biodata->nik ?? $siswa->nik ?? '')); ?>" placeholder="Masukkan NIK" pattern="[0-9]*" inputmode="numeric" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
+                        <input type="text" id="nik" class="form-control" name="nik" value="<?php echo e(old('nik', $biodata->nik ?? $siswa->nik ?? '')); ?>" placeholder="Masukkan NIK" pattern="[0-9]*" inputmode="numeric" maxlength="16" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
                         <small class="text-muted">Hanya angka (16 digit)</small>
                         <div id="nik-error" class="invalid-feedback d-none"></div>
                         <?php $__errorArgs = ['nik'];
@@ -173,7 +178,7 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-4">
                         <label class="form-label">No. HP Siswa</label>
-                        <input type="tel" class="form-control" name="no_hp" id="no_hp" value="<?php echo e(old('no_hp', $biodata->no_hp ?? $siswa->no_telepon ?? '')); ?>" placeholder="08xxxxxxxxxx" pattern="[0-9]+" inputmode="numeric" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
+                        <input type="tel" class="form-control" name="no_hp" id="no_hp" value="<?php echo e(old('no_hp', $biodata->no_hp ?? $siswa->no_telepon ?? '')); ?>" placeholder="08xxxxxxxxxx" pattern="[0-9]+" inputmode="numeric" maxlength="13" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
                         <small class="text-muted">Hanya angka, contoh: 08xxxxxxxxxx</small>
                         <?php $__errorArgs = ['no_hp'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
@@ -306,7 +311,7 @@ unset($__errorArgs, $__bag); ?>
                 <div class="row g-3 mb-4">
                     <div class="col-md-6">
                         <label class="form-label" id="no_hp_label">No. HP Orang Tua</label>
-                        <input type="text" class="form-control" name="no_hp_wali" id="no_hp_wali" value="<?php echo e(old('no_hp_wali', $biodata->no_hp_wali ?? '')); ?>" placeholder="08xxxxxxxxxx" inputmode="numeric" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
+                        <input type="text" class="form-control" name="no_hp_wali" id="no_hp_wali" value="<?php echo e(old('no_hp_wali', $biodata->no_hp_wali ?? '')); ?>" placeholder="08xxxxxxxxxx" inputmode="numeric" maxlength="13" <?php echo e($isSubmitted ? 'readonly' : 'required'); ?>>
                         <?php $__errorArgs = ['no_hp_wali'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -340,8 +345,8 @@ unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-3">
                         <label class="form-label">NPSN Sekolah</label>
-                        <input type="text" class="form-control" name="npsn" id="npsn" value="<?php echo e(old('npsn', $biodata->npsn ?? '')); ?>" placeholder="(jika ada)" pattern="[0-9]*" inputmode="numeric" <?php echo e($isSubmitted ? 'readonly' : ''); ?>>
-                        <small class="text-muted">Hanya angka</small>
+                        <input type="text" class="form-control" name="npsn" id="npsn" value="<?php echo e(old('npsn', $biodata->npsn ?? '')); ?>" placeholder="(jika ada)" pattern="[0-9]*" inputmode="numeric" maxlength="8" <?php echo e($isSubmitted ? 'readonly' : ''); ?>>
+                        <small class="text-muted">Hanya angka (8 digit)</small>
                         <?php $__errorArgs = ['npsn'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -374,9 +379,23 @@ unset($__errorArgs, $__bag); ?>
                 <h5 class="fw-bold mb-3 text-primary">Upload Foto</h5>
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <label class="form-label">Foto Diri</label>
-                        <input type="file" class="form-control" name="foto" accept="image/*" onchange="previewImage(event)" <?php echo e($isSubmitted ? 'disabled' : ''); ?>>
-                        <small class="text-muted">Maksimal 2MB | Format JPG/PNG</small>
+                        <label class="form-label">
+                            Foto Diri 
+                            <?php if(!($biodata && $biodata->foto)): ?>
+                                <span class="text-danger">*</span>
+                            <?php endif; ?>
+                        </label>
+                        <input type="file" class="form-control" name="foto" accept="image/*" onchange="previewImage(event)" 
+                            <?php echo e(($isSubmitted && $biodata && $biodata->foto) ? 'disabled' : ''); ?>
+
+                            <?php echo e((!($biodata && $biodata->foto)) ? 'required' : ''); ?>>
+                        <small class="text-muted">Maksimal 2MB | Format JPG/PNG | 
+                            <?php if(!($biodata && $biodata->foto)): ?>
+                                Wajib diisi
+                            <?php else: ?>
+                                Opsional (untuk update)
+                            <?php endif; ?>
+                        </small>
                         <?php $__errorArgs = ['foto'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :
@@ -389,12 +408,18 @@ endif;
 unset($__errorArgs, $__bag); ?>
                     </div>
                     <div class="col-md-6 text-center">
+                        <?php if($biodata && $biodata->foto): ?>
+                            <div class="mb-2">
+                                <small class="text-muted d-block mb-2">Foto Saat Ini:</small>
+                                <img src="<?php echo e(asset('storage/' . $biodata->foto)); ?>" alt="Foto Saat Ini" class="img-thumbnail" style="max-width: 200px; height: 200px; object-fit: cover;">
+                            </div>
+                        <?php endif; ?>
                         <img id="preview" src="#" alt="Preview Foto" class="img-thumbnail mt-2" style="max-width: 200px; display:none;">
                     </div>
                 </div>
 
                 <div class="text-end">
-                    <?php if(!$isSubmitted): ?>
+                    <?php if(!$isSubmitted || ($isSubmitted && $biodata && !$biodata->foto)): ?>
                         <button type="submit" class="btn btn-primary px-4" <?php echo e($formulirBelumDiisi ? 'disabled' : ''); ?>>
                             <i class="bi bi-save"></i> Simpan Data
                         </button>
@@ -402,10 +427,14 @@ unset($__errorArgs, $__bag); ?>
                             <small class="text-danger d-block mt-2">
                                 <i class="fas fa-lock me-1"></i>Tombol simpan dinonaktifkan sampai Anda isi Formulir Pendaftaran
                             </small>
+                        <?php elseif($isSubmitted && $biodata && !$biodata->foto): ?>
+                            <small class="text-warning d-block mt-2">
+                                <i class="fas fa-warning me-1"></i>Foto belum diupload. Silakan upload foto untuk melanjutkan.
+                            </small>
                         <?php endif; ?>
                     <?php else: ?>
                         <span class="text-muted">
-                            <i class="fas fa-check-circle text-success me-2"></i>Data sudah tersimpan
+                            <i class="fas fa-check-circle text-success me-2"></i>Data sudah tersimpan lengkap
                         </span>
                     <?php endif; ?>
                 </div>

@@ -1,2 +1,0 @@
-# Set environment variables for SSL certificate
-SetEnv CURL_CA_BUNDLE C:/laragon/etc/ssl/cacert.pem

@@ -64,8 +64,8 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <small class="text-muted">Status</small>
-                    <span class="badge badge-<?php echo e($statusPendaftaran && $statusPendaftaran->nama == 'Diterima' ? 'success' : ($statusPendaftaran && $statusPendaftaran->nama == 'Menunggu' ? 'warning' : 'secondary')); ?>">
-                        <?php echo e($statusPendaftaran ? $statusPendaftaran->nama : 'Belum Daftar'); ?>
+                    <span class="badge badge-<?php echo e($statusPendaftaran && $statusPendaftaran->label == 'Diterima' ? 'success' : ($statusPendaftaran && $statusPendaftaran->label == 'Menunggu' ? 'warning' : 'secondary')); ?>">
+                        <?php echo e($statusPendaftaran ? $statusPendaftaran->label : 'Belum Daftar'); ?>
 
                     </span>
                 </div>

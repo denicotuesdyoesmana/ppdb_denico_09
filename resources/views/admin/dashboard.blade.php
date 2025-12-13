@@ -414,16 +414,16 @@
                 <!-- Quick Stats -->
                 <div style="border-top: 1px solid #e5e7eb; padding-top: 16px; margin-top: 8px;">
                     <div style="font-size: 12px; font-weight: 600; color: #1f2937; margin-bottom: 10px;">📊 Statistik</div>
-                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                        <li style="padding: 8px; background: rgba(99, 102, 241, 0.1); border-radius: 6px; font-size: 12px;">
+                    <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: row; gap: 8px; flex-wrap: wrap;">
+                        <li style="padding: 8px; background: rgba(99, 102, 241, 0.1); border-radius: 6px; font-size: 12px; flex: 1; min-width: 100px;">
                             <div style="color: #6366f1; font-weight: 600;">{{ $totalPendaftaran }}</div>
                             <div style="color: #6b7280; font-size: 11px;">Total Pendaftar</div>
                         </li>
-                        <li style="padding: 8px; background: rgba(245, 158, 11, 0.1); border-radius: 6px; font-size: 12px;">
+                        <li style="padding: 8px; background: rgba(245, 158, 11, 0.1); border-radius: 6px; font-size: 12px; flex: 1; min-width: 100px;">
                             <div style="color: #f59e0b; font-weight: 600;">{{ $menunggu }}</div>
                             <div style="color: #6b7280; font-size: 11px;">Menunggu Verifikasi</div>
                         </li>
-                        <li style="padding: 8px; background: rgba(16, 185, 129, 0.1); border-radius: 6px; font-size: 12px;">
+                        <li style="padding: 8px; background: rgba(16, 185, 129, 0.1); border-radius: 6px; font-size: 12px; flex: 1; min-width: 100px;">
                             <div style="color: #10b981; font-weight: 600;">{{ $diterima }}</div>
                             <div style="color: #6b7280; font-size: 11px;">Diterima</div>
                         </li>
