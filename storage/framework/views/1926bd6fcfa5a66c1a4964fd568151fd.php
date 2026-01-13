@@ -38,7 +38,7 @@
     <!-- [Head] end -->
     <!-- [Body] Start -->
 
-    <body style="min-height:100dvh; min-height:100vh; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); background-attachment: fixed; margin: 0; padding: 0;">
+    <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light" style="min-height:100dvh; min-height:100vh; background: linear-gradient(135deg, #1890ff 0%, #0d66d0 100%); background-attachment: fixed; margin: 0; padding: 0;">
         <!-- [ Pre-loader ] start -->
         <div class="loader-bg">
             <div class="loader-track">
@@ -47,29 +47,21 @@
         </div>
         <!-- [ Pre-loader ] End -->
 
-        <div class="auth-main" style="min-height: 100vh;">
-                <div class="auth-wrapper v3">
+        <div class="auth-main" style="min-height: 100vh; display: flex; align-items: center; justify-content: center;">
+            <div class="auth-wrapper v3" style="width: 100%; max-width: 500px; padding: 20px;">
                 <div class="auth-form">
-                    <div class="auth-header">
+                    <div class="auth-header text-center">
                         <a class="navbar-brand" href="/">
-                            <img width="100" src="<?php echo e(asset('assets/images/my/logo-antrek-tp.png')); ?>" alt="logo">
+                            <img width="80" src="<?php echo e(asset('assets/images/my/logo-antrek-tp.png')); ?>" alt="logo">
                         </a>
                     </div>
                     <?php echo $__env->yieldContent('content'); ?>
 
-                    <div class="auth-footer row">
-                        <!-- <div class=""> -->
-                        <div class="col my-1">
-                            <p class="m-0">Copyright © <a href="#">Codedthemes</a></p>
-                        </div>
-                        <div class="col-auto my-1">
-                            <ul class="list-inline footer-link mb-0">
-                                <li class="list-inline-item"><a href="#">Home</a></li>
-                                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-                                <li class="list-inline-item"><a href="#">Contact us</a></li>
-                            </ul>
-                        </div>
-                        <!-- </div> -->
+                    <div class="auth-footer text-center mt-4">
+                        <p class="text-white mb-2">
+                            <i class="fas fa-shield-alt me-1"></i>Data Anda aman terlindungi
+                        </p>
+                        <p class="text-white small">© 2025 PPDB SMK Antartika 1 Sidoarjo</p>
                     </div>
                 </div>
             </div>

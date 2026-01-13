@@ -15,34 +15,59 @@
 
     <!-- Alert Error Merah jika Formulir belum diisi -->
     @if($formulirBelumDiisi)
-        <div class="alert alert-danger alert-dismissible fade show mb-3" role="alert">
-            <i class="fas fa-exclamation-triangle me-2"></i>
-            <strong>⚠️ Perhatian!</strong><br>
-            Anda belum mengisi <strong>Formulir Pendaftaran</strong>. Silakan <a href="{{ route('formulir.index') }}" class="alert-link fw-bold">isi Formulir Pendaftaran terlebih dahulu</a> sebelum melanjutkan ke biodata.
-            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        <div class="alert alert-danger alert-dismissible fade show mb-4" role="alert" style="border-left: 4px solid #dc3545; background-color: #f8d7da;">
+            <div class="d-flex align-items-start">
+                <div class="flex-shrink-0">
+                    <i class="fas fa-exclamation-circle fa-lg" style="color: #dc3545;"></i>
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h5 class="alert-heading mb-2" style="color: #721c24;">Perhatian!</h5>
+                    <p class="mb-0">Anda belum mengisi <strong>Formulir Pendaftaran</strong>. Langkah ini wajib diselesaikan terlebih dahulu sebelum melanjutkan ke pengisian biodata.</p>
+                    <div style="margin-top: 15px;">
+                        <a href="{{ route('formulir.index') }}" class="btn btn-danger btn-sm">
+                            <i class="fas fa-arrow-right me-1"></i> Isi Formulir Pendaftaran Sekarang
+                        </a>
+                    </div>
+                </div>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
         </div>
     @endif
 
     <!-- Info Box untuk Urutan -->
-    <div class="alert alert-info alert-dismissible fade show mb-3" role="alert">
-        <i class="fas fa-info-circle me-2"></i>
-        <strong>✅ Langkah 2 dari 3:</strong> Sekarang isi biodata pribadi Anda
-        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <div class="alert alert-info alert-dismissible fade show mb-4" role="alert" style="border-left: 4px solid #0dcaf0; background-color: #cfe2ff;">
+        <div class="d-flex align-items-start">
+            <div class="flex-shrink-0">
+                <i class="fas fa-info-circle fa-lg" style="color: #0dcaf0;"></i>
+            </div>
+            <div class="flex-grow-1 ms-3">
+                <h5 class="alert-heading mb-1" style="color: #084298;">Langkah 2 dari 3</h5>
+                <p class="mb-0">Sekarang saatnya mengisi <strong>biodata pribadi</strong> Anda secara lengkap dan akurat.</p>
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
     </div>
 
     <div class="card shadow-sm mb-4">
         <div class="card-body">
             @if($isSubmitted)
-                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                    <i class="fas fa-info-circle me-2"></i>
-                    <strong>Data Sudah Tersimpan!</strong> Data biodata Anda sudah disimpan. 
-                    @if($biodata && !$biodata->foto)
-                        <strong class="text-danger">⚠️ NAMUN FOTO MASIH BELUM DIUPLOAD!</strong> Silakan upload foto diri Anda di bawah ini.
-                    @else
-                        Anda hanya bisa melihat data yang sudah diisi.
-                        Jika perlu mengubah, silakan hubungi admin.
-                    @endif
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                <div class="alert alert-info alert-dismissible fade show mb-4" role="alert" style="border-left: 4px solid #0dcaf0; background-color: #cfe2ff;">
+                    <div class="d-flex align-items-start">
+                        <div class="flex-shrink-0">
+                            <i class="fas fa-check-circle fa-lg" style="color: #0dcaf0;"></i>
+                        </div>
+                        <div class="flex-grow-1 ms-3">
+                            <h5 class="alert-heading mb-2" style="color: #084298;">Data Sudah Tersimpan</h5>
+                            @if($biodata && !$biodata->foto)
+                                <p class="mb-2">Data biodata Anda sudah berhasil disimpan di sistem.</p>
+                                <p class="mb-3"><strong style="color: #dc3545;">⚠️ Perhatian:</strong> Foto profil masih belum diupload. Silakan upload foto diri Anda di bagian bawah form ini.</p>
+                            @else
+                                <p class="mb-2">Data biodata Anda sudah berhasil disimpan dan lengkap.</p>
+                                <p class="mb-0 small text-muted">Jika perlu melakukan perubahan data, silakan hubungi admin PPDB.</p>
+                            @endif
+                        </div>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
                 </div>
             @endif
 
