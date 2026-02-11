@@ -8,8 +8,8 @@
         <div class="col-lg-8 mx-auto">
             <!-- Header -->
             <div class="text-center mb-5">
-                <h1 class="display-4 fw-bold mb-3">
-                    <i class="fas fa-school me-2 text-primary"></i>Profil Sekolah
+                <h1 class="display-4 fw-bold mb-3 gradient-text-primary">
+                    <i class="fas fa-school me-2" style="color:var(--primary-dark)"></i>Profil Sekolah
                 </h1>
                 <p class="lead text-muted">SMK Antartika 1 Sidoarjo</p>
             </div>
@@ -17,11 +17,11 @@
             <!-- Info Cards -->
             <div class="row g-4 mb-5">
                 <div class="col-md-6">
-                    <div class="card h-100 shadow-sm border-0">
+                    <div class="card h-100 shadow-sm border-0 shadow-md-modern">
                         <div class="card-body">
-                            <h5 class="card-title">
-                                <i class="fas fa-building text-primary me-2"></i>Tentang Kami
-                            </h5>
+                                <h5 class="card-title">
+                                    <i class="fas fa-building me-2" style="color:var(--primary-dark)"></i>Tentang Kami
+                                </h5>
                             <p class="card-text">
                                 SMK Antartika 1 Sidoarjo adalah sekolah menengah kejuruan yang berfokus pada pendidikan berkualitas tinggi dengan standar nasional dan internasional.
                             </p>
@@ -30,10 +30,10 @@
                 </div>
 
                 <div class="col-md-6">
-                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card h-100 shadow-sm border-0">
                         <div class="card-body">
                             <h5 class="card-title">
-                                <i class="fas fa-map-marker-alt text-primary me-2"></i>Lokasi
+                                <i class="fas fa-map-marker-alt me-2" style="color:var(--primary-dark)"></i>Lokasi
                             </h5>
                             <p class="card-text">
                                 Jl. Antartika, Sidoarjo, Jawa Timur, Indonesia
@@ -45,10 +45,10 @@
             </div>
 
             <!-- Misi dan Visi -->
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card shadow-sm border-0 mb-4 card-modern">
+                <div class="card-header gradient-bg text-white">
                     <h5 class="mb-0">
-                        <i class="fas fa-eye me-2"></i>Visi dan Misi
+                        <i class="fas fa-eye me-2" style="color:inherit"></i>Visi dan Misi
                     </h5>
                 </div>
                 <div class="card-body">
@@ -66,10 +66,10 @@
             </div>
 
             <!-- Program Studi -->
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card shadow-sm border-0 mb-4 card-modern">
+                <div class="card-header gradient-bg text-white">
                     <h5 class="mb-0">
-                        <i class="fas fa-graduation-cap me-2"></i>Program Studi
+                        <i class="fas fa-graduation-cap me-2" style="color:inherit"></i>Program Studi
                     </h5>
                 </div>
                 <div class="card-body">
@@ -115,47 +115,47 @@
             </div>
 
             <!-- Fasilitas -->
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card shadow-sm border-0 mb-4 card-modern">
+                <div class="card-header gradient-bg text-white">
                     <h5 class="mb-0">
-                        <i class="fas fa-tools me-2"></i>Fasilitas
+                        <i class="fas fa-tools me-2" style="color:inherit"></i>Fasilitas
                     </h5>
                 </div>
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-laptop text-primary me-3"></i>
+                                <i class="fas fa-laptop" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Laboratorium Komputer Modern</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-cog text-primary me-3"></i>
+                                <i class="fas fa-cog" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Bengkel Mesin Lengkap</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-book text-primary me-3"></i>
+                                <i class="fas fa-book" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Perpustakaan Digital</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-users text-primary me-3"></i>
+                                <i class="fas fa-users" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Ruang Kelas Interaktif</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-futbol text-primary me-3"></i>
+                                <i class="fas fa-futbol" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Lapangan Olahraga</span>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="d-flex align-items-center">
-                                <i class="fas fa-cutlery text-primary me-3"></i>
+                                <i class="fas fa-cutlery" style="color: var(--primary-dark); margin-right: 12px; font-size: 24px;"></i>
                                 <span>Kantin dan Kafeteria</span>
                             </div>
                         </div>
@@ -164,10 +164,10 @@
             </div>
 
             <!-- Kontak -->
-            <div class="card shadow-sm border-0 mb-4">
-                <div class="card-header bg-primary text-white">
+            <div class="card shadow-sm border-0 mb-4 card-modern">
+                <div class="card-header gradient-bg text-white">
                     <h5 class="mb-0">
-                        <i class="fas fa-phone me-2"></i>Informasi Kontak
+                        <i class="fas fa-phone me-2" style="color:inherit"></i>Informasi Kontak
                     </h5>
                 </div>
                 <div class="card-body">
@@ -196,7 +196,7 @@
 
             <!-- CTA Button -->
             <div class="text-center mb-5">
-                <a href="{{ route('login') }}" class="btn btn-primary btn-lg">
+                <a href="{{ route('login') }}" class="btn btn-modern btn-modern-primary btn-lg">
                     <i class="fas fa-sign-in-alt me-2"></i>Daftar Sekarang
                 </a>
             </div>

@@ -85,7 +85,7 @@
         }
         
         .sidebar-brand:hover {
-            background: linear-gradient(135deg, #22d3ee 0%, #06b6d4 100%);
+            background: linear-gradient(135deg, #5eead4 0%, #14b8a6 100%);
             transform: translateY(-2px);
         }
         
@@ -498,8 +498,8 @@
         }
         
         .form-select:focus {
-            border-color: #06b6d4;
-            box-shadow: 0 0 0 4px rgba(6, 182, 212, 0.1);
+            border-color: #14b8a6;
+            box-shadow: 0 0 0 4px rgba(20, 184, 166, 0.1);
         }
         
         /* ALERT STYLING */

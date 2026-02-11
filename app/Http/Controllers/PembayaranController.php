@@ -40,6 +40,8 @@ class PembayaranController extends Controller
             $pembayaran = Pembayaran::latest()->first();
         }
 
+        // Ensure default payment methods exist (if seeder wasn't run)
+        $this->ensureMetodeDefaults();
         $metode = MetodePembayaran::all();
         $status = StatusPembayaran::all();
 
@@ -86,6 +88,7 @@ class PembayaranController extends Controller
             return redirect()->route('formulir.index')->with('error', 'Anda belum mengisi formulir pendaftaran.');
         }
 
+        $this->ensureMetodeDefaults();
         $metode = MetodePembayaran::all();
         $status = StatusPembayaran::all();
 
@@ -107,7 +110,7 @@ class PembayaranController extends Controller
         ];
         
         // Rules tambahan berdasarkan metode
-        if ($kodeMetode === 'transfer_bank') {
+        if (in_array($kodeMetode, ['transfer_bank', 'transfer'])) {
             $baseRules['nama_bank'] = 'required|string|max:100';
             $baseRules['nomor_rekening'] = 'required|numeric|regex:/^[0-9]{8,20}$/';
             $baseRules['atas_nama_rekening'] = 'required|string|max:100';
@@ -156,7 +159,7 @@ class PembayaranController extends Controller
         ];
         
         // Tambahkan detail transfer/ewallet sesuai metode
-        if ($kodeMetode === 'transfer_bank') {
+        if (in_array($kodeMetode, ['transfer_bank', 'transfer'])) {
             $data['nama_bank'] = $request->nama_bank;
             $data['nomor_rekening'] = $request->nomor_rekening;
             $data['atas_nama_rekening'] = $request->atas_nama_rekening;
@@ -198,6 +201,7 @@ class PembayaranController extends Controller
                 return redirect()->back()->with('error', 'Anda tidak memiliki akses ke pembayaran ini.');
             }
 
+            $this->ensureMetodeDefaults();
             $metode = MetodePembayaran::all();
             $status = StatusPembayaran::all();
 
@@ -205,6 +209,25 @@ class PembayaranController extends Controller
         } catch (\Exception $e) {
             Log::error('Pembayaran Show Error: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Pembayaran tidak ditemukan.');
+        }
+    }
+
+    /**
+     * Ensure default payment methods exist in database.
+     * This prevents empty selects when seeders were not run.
+     */
+    private function ensureMetodeDefaults()
+    {
+        $defaults = [
+            ['kode' => 'transfer_bank', 'label' => 'Transfer Bank'],
+            ['kode' => 'e_wallet', 'label' => 'E-Wallet'],
+        ];
+
+        foreach ($defaults as $d) {
+            MetodePembayaran::firstOrCreate(
+                ['kode' => $d['kode']],
+                ['label' => $d['label']]
+            );
         }
     }
 

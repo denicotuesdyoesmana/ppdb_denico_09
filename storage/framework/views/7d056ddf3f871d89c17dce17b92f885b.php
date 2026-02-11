@@ -66,15 +66,12 @@
                                 <h6 class="mb-1">Format CSV</h6>
                                 <small class="text-muted">Include: Nomor Pendaftaran, Nama, Email, Sekolah, Jurusan, Status</small>
                             </div>
-                            <a href="<?php echo e(route('admin.reports.export.pendaftaran')); ?>" class="btn btn-primary btn-sm">
+                            <a href="<?php echo e(route('admin.reports.export.pendaftaran')); ?>" class="btn btn-modern btn-modern-primary btn-sm">
                                 <i class="fas fa-download me-2"></i>Download
                             </a>
                         </div>
                     </div>
                 </div>
-                <a href="<?php echo e(route('admin.reports.statistics')); ?>" class="btn btn-outline-primary w-100">
-                    <i class="fas fa-chart-pie me-2"></i>Lihat Statistik
-                </a>
             </div>
         </div>
     </div>
@@ -95,7 +92,7 @@
                                 <h6 class="mb-1">Format CSV</h6>
                                 <small class="text-muted">Include: Nama Siswa, Jenis Dokumen, Status, Tanggal</small>
                             </div>
-                            <a href="<?php echo e(route('admin.reports.export.dokumen')); ?>" class="btn btn-primary btn-sm">
+                            <a href="<?php echo e(route('admin.reports.export.dokumen')); ?>" class="btn btn-modern btn-modern-primary btn-sm">
                                 <i class="fas fa-download me-2"></i>Download
                             </a>
                         </div>
@@ -121,7 +118,7 @@
                                 <h6 class="mb-1">Format CSV</h6>
                                 <small class="text-muted">Include: User, Aksi, Deskripsi, IP, Waktu</small>
                             </div>
-                            <a href="<?php echo e(route('admin.reports.export.activity-log')); ?>" class="btn btn-primary btn-sm">
+                            <a href="<?php echo e(route('admin.reports.export.activity-log')); ?>" class="btn btn-modern btn-modern-primary btn-sm">
                                 <i class="fas fa-download me-2"></i>Download
                             </a>
                         </div>
@@ -168,7 +165,7 @@
     }
 
     .stat-card.primary {
-        background: linear-gradient(135deg, #4f46e5 0%, #6366f1 100%);
+        background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%);
     }
 
     .stat-card.success {
@@ -180,7 +177,7 @@
     }
 
     .stat-card.info {
-        background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 100%);
+        background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%);
     }
 
     .stat-value {
@@ -223,12 +220,12 @@
     }
 
     .btn-outline-primary {
-        border-color: #4f46e5;
-        color: #4f46e5;
+        border-color: #14b8a6;
+        color: #14b8a6;
     }
 
     .btn-outline-primary:hover {
-        background-color: #4f46e5;
+        background-color: #14b8a6;
         color: white;
     }
 

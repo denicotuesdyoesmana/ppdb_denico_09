@@ -143,7 +143,7 @@
         <div class="card bg-light">
             <div class="card-body">
                 <h5 class="mb-3">Kembali ke Laporan</h5>
-                <a href="{{ route('admin.reports.index') }}" class="btn btn-primary">
+                <a href="{{ route('admin.reports.index') }}" class="btn btn-modern btn-modern-primary">
                     <i class="fas fa-arrow-left me-2"></i>Kembali ke Halaman Eksport
                 </a>
             </div>

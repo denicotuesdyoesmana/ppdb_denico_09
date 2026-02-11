@@ -68,21 +68,23 @@
                                         @endif
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.jurusan.show', $item) }}" class="btn btn-sm btn-info" title="Lihat Pendaftar">
-                                            <i class="fas fa-eye"></i>
-                                        </a>
-                                        <a href="{{ route('admin.jurusan.edit', $item) }}" class="btn btn-sm btn-warning" title="Edit">
-                                            <i class="fas fa-edit"></i>
-                                        </a>
-                                        @if(!$item->pendaftarans()->exists())
-                                            <form action="{{ route('admin.jurusan.destroy', $item) }}" method="POST" style="display:inline;">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Yakin ingin menghapus?')">
-                                                    <i class="fas fa-trash"></i>
-                                                </button>
-                                            </form>
-                                        @endif
+                                        <div style="display: flex; gap: 6px; align-items: center; justify-content: flex-start;">
+                                            <a href="{{ route('admin.jurusan.show', $item) }}" class="btn btn-sm btn-info" title="Lihat Pendaftar">
+                                                <i class="fas fa-eye"></i>
+                                            </a>
+                                            <a href="{{ route('admin.jurusan.edit', $item) }}" class="btn btn-sm btn-warning" title="Edit">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            @if(!$item->pendaftarans()->exists())
+                                                <form action="{{ route('admin.jurusan.destroy', $item) }}" method="POST" style="display:inline; margin: 0;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-sm btn-danger" title="Hapus" onclick="return confirm('Yakin ingin menghapus?')">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                            @endif
+                                        </div>
                                     </td>
                                 </tr>
                             @endforeach

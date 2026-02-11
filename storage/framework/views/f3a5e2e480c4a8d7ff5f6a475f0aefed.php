@@ -3,8 +3,8 @@
 <?php $__env->startSection('content'); ?>
 <div class="card shadow-lg border-0" style="border-radius: 12px; overflow: hidden;">
     <!-- Card Header dengan warna dashboard -->
-    <div style="background: linear-gradient(135deg, #1890ff 0%, #0d66d0 100%); padding: 2rem; text-align: center;">
-        <h2 class="text-white mb-2" style="font-weight: 700;">
+    <div class="gradient-bg text-center p-4">
+        <h2 class="text-white mb-2 fw-bold">
             <i class="fas fa-sign-in-alt me-2"></i>Masuk
         </h2>
         <p class="text-white-50 mb-0">Portal Pendaftaran PPDB 2025/2026</p>
@@ -119,8 +119,34 @@ unset($__errorArgs, $__bag); ?>
                 </a>
             </div>
 
+            <!-- CAPTCHA Field -->
+            <div class="mb-4">
+                <label class="form-label fw-600">
+                    <i class="fas fa-shield-alt me-2 text-primary"></i>Verifikasi Keamanan
+                </label>
+                <div class="captcha-container" style="display: flex; justify-content: center; padding: 15px; background: #f8f9fa; border-radius: 8px; border: 1px solid #e0e0e0;">
+                    <?php echo NoCaptcha::renderJs(); ?>
+
+                    <?php echo NoCaptcha::display(); ?>
+
+                </div>
+                <?php $__errorArgs = ['g-recaptcha-response'];
+$__bag = $errors->getBag($__errorArgs[1] ?? 'default');
+if ($__bag->has($__errorArgs[0])) :
+if (isset($message)) { $__messageOriginal = $message; }
+$message = $__bag->first($__errorArgs[0]); ?>
+                    <small class="text-danger">
+                        <i class="fas fa-exclamation-circle me-1"></i><?php echo e($message); ?>
+
+                    </small>
+                <?php unset($message);
+if (isset($__messageOriginal)) { $message = $__messageOriginal; }
+endif;
+unset($__errorArgs, $__bag); ?>
+            </div>
+
             <!-- Submit Button -->
-            <button type="submit" class="btn btn-primary btn-lg w-100 fw-600 mb-3">
+            <button type="submit" class="btn btn-modern btn-modern-primary btn-lg w-100 fw-600 mb-3">
                 <i class="fas fa-arrow-right me-2"></i>Masuk
             </button>
         </form>

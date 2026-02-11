@@ -71,7 +71,7 @@
 
                         <!-- Pilihan Jurusan -->
                         <div class="mb-4">
-                            <h6 class="text-primary mb-3">Pilihan Jurusan</h6>
+                            <h6 class="gradient-text-primary mb-3">Pilihan Jurusan</h6>
                             <p class="mb-2">
                                 <strong>Pilihan 1:</strong> {{ $pendaftaran->jurusanPilihan1?->nama ?? '-' }}
                             </p>
@@ -84,7 +84,7 @@
 
                         <!-- Action Buttons -->
                         <div class="d-flex gap-2">
-                            <button type="button" class="btn btn-primary" onclick="window.print()">
+                            <button type="button" class="btn btn-modern btn-modern-primary" onclick="window.print()">
                                 <i class="ti ti-printer me-2"></i> Cetak Kartu
                             </button>
                             <button type="button" class="btn btn-secondary" onclick="window.history.back()">
@@ -97,7 +97,7 @@
                             <strong>Informasi Belum Lengkap</strong>
                             <p class="mt-2 mb-0">Silakan lengkapi data pribadi dan daftar terlebih dahulu untuk mendapatkan kartu ujian.</p>
                         </div>
-                        <a href="{{ route('biodata.index') }}" class="btn btn-primary">
+                        <a href="{{ route('biodata.index') }}" class="btn btn-modern btn-modern-primary">
                             <i class="ti ti-edit me-2"></i> Lengkapi Data
                         </a>
                     @endif

@@ -58,7 +58,7 @@
                             <option value="">-- Pilih Metode Pembayaran --</option>
                             @foreach($metode as $m)
                                 <option value="{{ $m->id }}" data-kode="{{ $m->kode }}" {{ old('metode_id') == $m->id ? 'selected' : '' }}>
-                                    @if($m->kode === 'transfer_bank')
+                                    @if(in_array($m->kode, ['transfer_bank', 'transfer']))
                                         <i class="fas fa-university"></i> {{ $m->label }}
                                     @elseif($m->kode === 'e_wallet')
                                         <i class="fas fa-mobile-alt"></i> {{ $m->label }}
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nomorEwallet.required = false;
         
         // Show appropriate section and set required
-        if (kode === 'transfer_bank') {
+        if (kode === 'transfer_bank' || kode === 'transfer') {
             transferBankSection.style.display = 'block';
             namaBank.required = true;
             nomorRekening.required = true;

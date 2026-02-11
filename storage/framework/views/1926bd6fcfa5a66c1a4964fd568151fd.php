@@ -33,6 +33,7 @@
         <!-- [Template CSS Files] -->
         <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>" id="main-style-link">
         <link rel="stylesheet" href="<?php echo e(asset('assets/css/style-preset.css')); ?>">
+        <link rel="stylesheet" href="<?php echo e(asset('assets/css/modern-theme.css')); ?>">
 
     </head>
     <!-- [Head] end -->

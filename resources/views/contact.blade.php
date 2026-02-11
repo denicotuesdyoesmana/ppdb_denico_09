@@ -5,7 +5,7 @@
 @section('content')
 
     <header class="contact-hero"
-        style="position: relative; padding: 100px 0; background: url('{{ asset('assets/images/my/stmantrek.png') }}') no-repeat center center; background-size: cover;">
+        style="position: relative; padding: 100px 0; background: url('{{ asset('assets/images/my/sekolah_depan.jpg') }}') no-repeat center center; background-size: cover;">
         <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0, 0, 0, 0.5);"></div>
         <div class="container">
             <div class="row justify-content-center text-center text-light">
@@ -31,23 +31,23 @@
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-xxl-6 col-md-8 col-sm-10">
+                    <div class="col-xxl-6 col-md-8 col-sm-10">
                     <div class="row g-3">
                         <div class="col-md-6">
-                            <input type="text" class="form-control" placeholder="Nama Lengkap">
+                            <input type="text" class="form-control input-modern" placeholder="Nama Lengkap">
                         </div>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" placeholder="Alamat Email">
+                            <input type="email" class="form-control input-modern" placeholder="Alamat Email">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12">
-                            <input type="text" class="form-control" placeholder="Subjek Pesan">
+                            <input type="text" class="form-control input-modern" placeholder="Subjek Pesan">
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-12">
-                            <textarea class="form-control form-control-lg" rows="4" placeholder="Tuliskan pesan Anda di sini..."></textarea>
+                            <textarea class="form-control form-control-lg input-modern" rows="4" placeholder="Tuliskan pesan Anda di sini..."></textarea>
                         </div>
                     </div>
                     <div class="form-check mt-3 text-start">
@@ -57,7 +57,7 @@
                         </label>
                     </div>
                     <div class="mt-3 text-end">
-                        <button type="button" class="btn btn-primary">Kirim Pesan</button>
+                        <button type="button" class="btn btn-modern btn-modern-primary">Kirim Pesan</button>
                     </div>
                 </div>
             </div>

@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-md-2">
                         <label class="form-label">&nbsp;</label>
-                        <button type="submit" class="btn btn-primary w-100">
+                        <button type="submit" class="btn btn-modern btn-modern-primary w-100">
                             <i class="fas fa-search"></i> Filter
                         </button>
                     </div>

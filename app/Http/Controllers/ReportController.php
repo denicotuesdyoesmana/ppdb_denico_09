@@ -29,32 +29,52 @@ class ReportController extends Controller
     public function exportPendaftaran()
     {
         $pendaftarans = Pendaftaran::with('siswa', 'statusPendaftaran', 'jurusanPilihan1', 'jurusanPilihan2')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $headers = [
             'Content-Type' => 'text/csv; charset=utf-8',
-            'Content-Disposition' => 'attachment; filename="pendaftaran_' . now()->format('Y-m-d') . '.csv"',
+            'Content-Disposition' => 'attachment; filename="Pendaftaran_' . now()->format('d-m-Y') . '.csv"',
         ];
 
         $callback = function() use ($pendaftarans) {
             $file = fopen('php://output', 'w');
             
-            // Header
-            fputcsv($file, ['No. Pendaftaran', 'Nama Siswa', 'Email', 'No. HP', 'Asal Sekolah', 'Jurusan Pilihan 1', 'Jurusan Pilihan 2', 'Status', 'Tanggal Pendaftaran']);
+            // BOM untuk UTF-8 Excel
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+            
+            // Header tabel
+            fputcsv($file, [
+                'No',
+                'No. Pendaftaran',
+                'Nama Siswa',
+                'Email',
+                'No. Handphone',
+                'Asal Sekolah',
+                'Jurusan Pilihan 1',
+                'Jurusan Pilihan 2',
+                'Status',
+                'Tanggal Pendaftaran',
+                'Harga Gelombang',
+                'Gelombang'
+            ], ';', '"');
 
             // Data
-            foreach ($pendaftarans as $p) {
+            foreach ($pendaftarans as $key => $p) {
                 fputcsv($file, [
-                    $p->nomor_pendaftaran,
-                    $p->siswa?->nama_lengkap,
-                    $p->siswa?->email,
-                    $p->siswa?->no_hp,
-                    $p->siswa?->asal_sekolah,
-                    $p->jurusanPilihan1?->nama,
-                    $p->jurusanPilihan2?->nama,
-                    $p->statusPendaftaran?->label,
-                    $p->created_at->format('d-m-Y H:i'),
-                ]);
+                    $key + 1,
+                    $this->cleanData($p->nomor_pendaftaran),
+                    $this->cleanData($p->siswa?->nama_lengkap),
+                    $this->cleanData($p->siswa?->email),
+                    $this->cleanData($p->siswa?->no_hp),
+                    $this->cleanData($p->siswa?->asal_sekolah),
+                    $this->cleanData($p->jurusanPilihan1?->nama_jurusan),
+                    $this->cleanData($p->jurusanPilihan2?->nama_jurusan),
+                    $this->cleanData($p->statusPendaftaran?->label ?? 'Menunggu'),
+                    $p->created_at?->format('d/m/Y H:i') ?? '-',
+                    number_format($p->harga_gelombang ?? 0, 0, ',', '.'),
+                    $this->cleanData($p->gelombang),
+                ], ';', '"');
             }
 
             fclose($file);
@@ -69,28 +89,42 @@ class ReportController extends Controller
     public function exportDokumen()
     {
         $dokumens = Dokumen::with('siswa', 'jenisDokumen', 'statusVerifikasi')
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $headers = [
             'Content-Type' => 'text/csv; charset=utf-8',
-            'Content-Disposition' => 'attachment; filename="dokumen_' . now()->format('Y-m-d') . '.csv"',
+            'Content-Disposition' => 'attachment; filename="Dokumen_' . now()->format('d-m-Y') . '.csv"',
         ];
 
         $callback = function() use ($dokumens) {
             $file = fopen('php://output', 'w');
             
-            // Header
-            fputcsv($file, ['Nama Siswa', 'Jenis Dokumen', 'Status Verifikasi', 'Tanggal Upload', 'Tanggal Update']);
+            // BOM untuk UTF-8 Excel
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+            
+            // Header tabel
+            fputcsv($file, [
+                'No',
+                'Nama Siswa',
+                'Jenis Dokumen',
+                'Status Verifikasi',
+                'Komentar Verifikasi',
+                'Tanggal Upload',
+                'Tanggal Update'
+            ], ';', '"');
 
             // Data
-            foreach ($dokumens as $d) {
+            foreach ($dokumens as $key => $d) {
                 fputcsv($file, [
-                    $d->siswa?->nama_lengkap,
-                    $d->jenisDokumen?->nama,
-                    $d->statusVerifikasi?->label,
-                    $d->created_at->format('d-m-Y H:i'),
-                    $d->updated_at->format('d-m-Y H:i'),
-                ]);
+                    $key + 1,
+                    $this->cleanData($d->siswa?->nama_lengkap),
+                    $this->cleanData($d->jenisDokumen?->nama),
+                    $this->cleanData($d->statusVerifikasi?->label ?? 'Menunggu'),
+                    $this->cleanData($d->komentar_verifikasi),
+                    $d->created_at?->format('d/m/Y H:i') ?? '-',
+                    $d->updated_at?->format('d/m/Y H:i') ?? '-',
+                ], ';', '"');
             }
 
             fclose($file);
@@ -110,30 +144,58 @@ class ReportController extends Controller
 
         $headers = [
             'Content-Type' => 'text/csv; charset=utf-8',
-            'Content-Disposition' => 'attachment; filename="activity_log_' . now()->format('Y-m-d') . '.csv"',
+            'Content-Disposition' => 'attachment; filename="Activity_Log_' . now()->format('d-m-Y') . '.csv"',
         ];
 
         $callback = function() use ($activities) {
             $file = fopen('php://output', 'w');
             
-            // Header
-            fputcsv($file, ['Nama User', 'Aksi', 'Deskripsi', 'IP Address', 'Waktu']);
+            // BOM untuk UTF-8 Excel
+            fprintf($file, chr(0xEF).chr(0xBB).chr(0xBF));
+            
+            // Header tabel
+            fputcsv($file, [
+                'No',
+                'Nama User',
+                'Email User',
+                'Aksi',
+                'Deskripsi',
+                'IP Address',
+                'Waktu'
+            ], ';', '"');
 
             // Data
-            foreach ($activities as $a) {
+            foreach ($activities as $key => $a) {
                 fputcsv($file, [
-                    $a->user?->name,
-                    $a->action,
-                    $a->description,
-                    $a->ip_address,
-                    $a->created_at->format('d-m-Y H:i:s'),
-                ]);
+                    $key + 1,
+                    $this->cleanData($a->user?->name),
+                    $this->cleanData($a->user?->email),
+                    $this->cleanData($a->action),
+                    $this->cleanData($a->description),
+                    $this->cleanData($a->ip_address),
+                    $a->created_at?->format('d/m/Y H:i:s') ?? '-',
+                ], ';', '"');
             }
 
             fclose($file);
         };
 
         return response()->stream($callback, 200, $headers);
+    }
+
+    /**
+     * Helper function to clean data for CSV export
+     */
+    private function cleanData($value)
+    {
+        if (is_null($value)) {
+            return '-';
+        }
+        // Remove line breaks
+        $value = str_replace(["\r\n", "\r", "\n", "\t"], ' ', $value);
+        // Remove multiple spaces
+        $value = preg_replace('/\s+/', ' ', $value);
+        return trim($value);
     }
 
     /**

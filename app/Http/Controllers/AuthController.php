@@ -38,6 +38,10 @@ class AuthController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6',
+            'g-recaptcha-response' => 'required|captcha',
+        ], [
+            'g-recaptcha-response.required' => 'Silakan centang CAPTCHA untuk verifikasi keamanan.',
+            'g-recaptcha-response.captcha' => 'Verifikasi CAPTCHA gagal. Silakan coba lagi.',
         ]);
 
         // Validasi email sudah diverifikasi (kecuali admin)

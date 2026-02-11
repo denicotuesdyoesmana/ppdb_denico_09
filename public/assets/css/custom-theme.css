@@ -3,8 +3,8 @@
    - Keep selectors specific and non-invasive
 */
 :root {
-  --ap-primary: #4f46e5;
-  --ap-primary-light: #6366f1;
+  --ap-primary: #14b8a6;
+  --ap-primary-light: #5eead4;
   --ap-success: #10b981;
   --ap-danger: #ef4444;
   --ap-warning: #f59e0b;

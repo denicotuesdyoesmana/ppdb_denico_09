@@ -5,7 +5,7 @@
 @section('content')
 <style>
     .detail-header {
-        background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+        background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%);
         color: white;
         padding: 30px;
         border-radius: 12px;
@@ -113,7 +113,7 @@
         font-weight: 600;
     }
 
-    .badge-primary { background: rgba(99, 102, 241, 0.15); color: #6366f1; }
+    .badge-primary { background: rgba(20, 184, 166, 0.15); color: #14b8a6; }
     .badge-success { background: rgba(16, 185, 129, 0.15); color: #10b981; }
     .badge-warning { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
     .badge-danger { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
@@ -167,13 +167,13 @@
     }
 
     .btn-primary {
-        background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%);
+        background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%);
         color: white;
     }
 
     .btn-primary:hover {
         transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+        box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
     }
 
     .btn-success {

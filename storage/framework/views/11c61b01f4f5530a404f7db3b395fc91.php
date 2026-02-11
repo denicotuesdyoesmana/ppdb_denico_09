@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="<?php echo e(asset('assets/fonts/material.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/style.css')); ?>" id="main-style-link">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/style-preset.css')); ?>">
+    <link rel="stylesheet" href="<?php echo e(asset('assets/css/modern-theme.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/landing.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(asset('assets/css/hero-custom.css')); ?>">
 
@@ -74,14 +75,14 @@
 
                     <?php if(auth()->check()): ?>
                         <li class="nav-item">
-                            <a class="btn btn-primary ms-2" href="/myprofile">
+                            <a class="btn btn-modern btn-modern-primary ms-2" href="/myprofile">
                                 <i class="ti ti-user-check me-1"></i> <?php echo e(auth()->user()->name); ?>
 
                             </a>
                         </li>
                     <?php else: ?>
                         <li class="nav-item">
-                            <a class="btn btn-primary ms-2" href="/login">
+                            <a class="btn btn-modern btn-modern-primary ms-2" href="/login">
                                 <i class="ti ti-login me-1"></i> Login
                             </a>
                         </li>

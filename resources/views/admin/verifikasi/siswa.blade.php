@@ -17,8 +17,8 @@
         <div class="col-12">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb" style="background: white; padding: 12px 16px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin: 0;">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('admin.verifikasi') }}" style="color: #0ea5e9; text-decoration: none; font-weight: 500;">Verifikasi Dokumen</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}" style="color: #14b8a6; text-decoration: none; font-weight: 500;">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('admin.verifikasi') }}" style="color: #14b8a6; text-decoration: none; font-weight: 500;">Verifikasi Dokumen</a></li>
                     <li class="breadcrumb-item active" style="color: #1f2937; font-weight: 600;">{{ $siswa->nama_lengkap }}</li>
                 </ol>
             </nav>
@@ -43,8 +43,8 @@
     @endif
 
     <!-- Siswa Info Card -->
-    <div class="card mb-4" style="border: none; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1); border-radius: 12px; overflow: hidden;">
-        <div style="background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%); padding: 20px; color: white;">
+    <div class="card mb-4" style="border: none; box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1); border-radius: 12px; overflow: hidden;">
+        <div style="background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); padding: 20px; color: white;">
             <div style="display: flex; align-items: center; gap: 12px;">
                 <i class="fas fa-user-circle" style="font-size: 28px; opacity: 0.9;"></i>
                 <h5 style="margin: 0; font-weight: 700; font-size: 20px;">Informasi Siswa</h5>
@@ -57,7 +57,7 @@
                     <!-- Nama Lengkap -->
                     <div style="margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-id-card" style="margin-right: 6px; color: #6366f1;"></i>Nama Lengkap
+                            <i class="fas fa-id-card" style="margin-right: 6px; color: #14b8a6;"></i>Nama Lengkap
                         </label>
                         <p style="margin: 0; color: #1f2937; font-size: 15px; font-weight: 600;">
                             {{ $siswa->nama_lengkap }}
@@ -67,7 +67,7 @@
                     <!-- NISN -->
                     <div style="margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-barcode" style="margin-right: 6px; color: #6366f1;"></i>NISN
+                            <i class="fas fa-barcode" style="margin-right: 6px; color: #14b8a6;"></i>NISN
                         </label>
                         <p style="margin: 0; color: #1f2937; font-size: 15px; font-weight: 600;">
                             {{ $siswa->nisn }}
@@ -77,7 +77,7 @@
                     <!-- NIK -->
                     <div style="margin-bottom: 0;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-credit-card" style="margin-right: 6px; color: #6366f1;"></i>NIK
+                            <i class="fas fa-credit-card" style="margin-right: 6px; color: #14b8a6;"></i>NIK
                         </label>
                         <p style="margin: 0; color: #1f2937; font-size: 15px; font-weight: 600;">
                             {{ $siswa->nik ?? '-' }}
@@ -90,10 +90,10 @@
                     <!-- Jenis Kelamin -->
                     <div style="margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-venus-mars" style="margin-right: 6px; color: #6366f1;"></i>Jenis Kelamin
+                            <i class="fas fa-venus-mars" style="margin-right: 6px; color: #14b8a6;"></i>Jenis Kelamin
                         </label>
                         <p style="margin: 0; color: #1f2937; font-size: 15px; font-weight: 600;">
-                            <span style="display: inline-block; padding: 4px 10px; background: {{ $siswa->jenis_kelamin === 'L' ? 'rgba(59, 130, 246, 0.15); color: #3b82f6;' : 'rgba(236, 72, 153, 0.15); color: #ec4899;' }} border-radius: 6px;">
+                            <span style="display: inline-block; padding: 4px 10px; background: {{ $siswa->jenis_kelamin === 'L' ? 'rgba(20, 184, 166, 0.15); color: #14b8a6;' : 'rgba(236, 72, 153, 0.15); color: #ec4899;' }} border-radius: 6px;">
                                 {{ $siswa->jenis_kelamin === 'L' ? 'Laki-laki' : 'Perempuan' }}
                             </span>
                         </p>
@@ -102,7 +102,7 @@
                     <!-- Asal Sekolah -->
                     <div style="margin-bottom: 18px; padding-bottom: 15px; border-bottom: 1px solid #e5e7eb;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-school" style="margin-right: 6px; color: #6366f1;"></i>Asal Sekolah
+                            <i class="fas fa-school" style="margin-right: 6px; color: #14b8a6;"></i>Asal Sekolah
                         </label>
                         <p style="margin: 0; color: #1f2937; font-size: 15px; font-weight: 600;">
                             {{ $siswa->asal_sekolah ?? '-' }}
@@ -112,10 +112,10 @@
                     <!-- Total Dokumen -->
                     <div style="margin-bottom: 0;">
                         <label style="display: block; color: #6b7280; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px;">
-                            <i class="fas fa-folder-open" style="margin-right: 6px; color: #6366f1;"></i>Total Dokumen
+                            <i class="fas fa-folder-open" style="margin-right: 6px; color: #14b8a6;"></i>Total Dokumen
                         </label>
                         <p style="margin: 0;">
-                            <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%); color: white; border-radius: 8px; font-weight: 600; font-size: 14px;">
+                            <span style="display: inline-block; padding: 6px 14px; background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); color: white; border-radius: 8px; font-weight: 600; font-size: 14px;">
                                 {{ $siswa->dokumen->count() }} Dokumen
                             </span>
                         </p>
@@ -126,8 +126,8 @@
     </div>
 
     <!-- Documents List -->
-    <div class="card" style="border: none; box-shadow: 0 4px 12px rgba(139, 92, 246, 0.1); border-radius: 12px; overflow: hidden;">
-        <div style="background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); padding: 20px; color: white;">
+    <div class="card" style="border: none; box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1); border-radius: 12px; overflow: hidden;">
+        <div style="background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); padding: 20px; color: white;">
             <div style="display: flex; align-items: center; gap: 12px;">
                 <i class="fas fa-file-alt" style="font-size: 28px; opacity: 0.9;"></i>
                 <h5 style="margin: 0; font-weight: 700; font-size: 20px;">Daftar Dokumen</h5>
@@ -180,12 +180,12 @@
                                     </td>
                                     <td class="align-middle" style="padding: 15px;">
                                         <div class="btn-group btn-group-sm" role="group">
-                                            <a href="{{ route('admin.verifikasi.preview', $item->id) }}" target="_blank" class="btn" style="padding: 6px 10px; background: linear-gradient(135deg, #0ea5e9 0%, #06b6d4 100%); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(14, 165, 233, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                                            <a href="{{ route('admin.verifikasi.preview', $item->id) }}" target="_blank" class="btn" style="padding: 6px 10px; background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(20, 184, 166, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
                                                 <i class="fas fa-eye" style="font-size: 11px;"></i> Lihat
                                             </a>
                                             <form action="{{ route('admin.verifikasi.accept', $item->id) }}" method="POST" style="display: inline;" class="verify-accept-form">
                                                 @csrf
-                                                <button type="button" class="btn btn-verify-accept" data-dokumen-id="{{ $item->id }}" data-dokumen-name="{{ $item->jenisDokumen->nama }}" style="padding: 6px 10px; background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s; cursor: pointer; margin-left: -1px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(139, 92, 246, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''" title="Terima Dokumen">
+                                                <button type="button" class="btn btn-verify-accept" data-dokumen-id="{{ $item->id }}" data-dokumen-name="{{ $item->jenisDokumen->nama }}" style="padding: 6px 10px; background: linear-gradient(135deg, #10b981 0%, #34d399 100%); color: white; border: none; border-radius: 6px; font-size: 11px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; transition: all 0.3s; cursor: pointer; margin-left: -1px;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(16, 185, 129, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''" title="Terima Dokumen">
                                                     <i class="fas fa-check" style="font-size: 11px;"></i> Terima
                                                 </button>
                                             </form>
@@ -237,7 +237,7 @@
             Swal.fire({
                 icon: 'question',
                 title: 'Terima Dokumen',
-                html: `<p>Apakah Anda yakin ingin <strong>menerima</strong> dokumen:</p><p><strong style="color: #6366f1;">${dokumenName}</strong>?</p>`,
+                html: `<p>Apakah Anda yakin ingin <strong>menerima</strong> dokumen:</p><p><strong style="color: #14b8a6;">${dokumenName}</strong>?</p>`,
                 showCancelButton: true,
                 confirmButtonText: 'Ya, Terima',
                 cancelButtonText: 'Batal',

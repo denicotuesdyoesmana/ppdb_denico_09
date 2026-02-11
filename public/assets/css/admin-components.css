@@ -127,19 +127,19 @@
 }
 
 .nav-tabs-modern .nav-link:hover {
-    color: #06b6d4;
+    color: #14b8a6;
 }
 
 .nav-tabs-modern .nav-link.active {
     background: transparent;
-    color: #06b6d4;
-    border-bottom-color: #06b6d4;
+    color: #14b8a6;
+    border-bottom-color: #14b8a6;
 }
 
 /* Pagination Modern */
 .pagination-modern .page-link {
     border: 1px solid var(--gray-light);
-    color: #06b6d4;
+    color: #14b8a6;
     border-radius: 8px;
     margin: 0 4px;
     transition: all 0.3s;
@@ -147,15 +147,15 @@
 }
 
 .pagination-modern .page-link:hover {
-    background: rgba(6, 182, 212, 0.1);
-    border-color: #06b6d4;
-    color: #06b6d4;
+    background: rgba(20, 184, 166, 0.1);
+    border-color: #14b8a6;
+    color: #14b8a6;
 }
 
 .pagination-modern .page-item.active .page-link {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-    border-color: #06b6d4;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+    border-color: #14b8a6;
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 /* Breadcrumb Modern */
@@ -172,18 +172,18 @@
 }
 
 .breadcrumb-modern .breadcrumb-item.active {
-    color: #06b6d4;
+    color: #14b8a6;
     font-weight: 600;
 }
 
 .breadcrumb-modern .breadcrumb-item a {
-    color: #06b6d4;
+    color: #14b8a6;
     text-decoration: none;
     transition: all 0.3s;
 }
 
 .breadcrumb-modern .breadcrumb-item a:hover {
-    color: #0891b2;
+    color: #0d9488;
 }
 
 /* Form Group Modern */
@@ -277,7 +277,7 @@
 }
 
 .status-info::before {
-    background: #06b6d4;
+    background: #14b8a6;
 }
 
 /* List Group Modern */
@@ -393,7 +393,7 @@
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -401,7 +401,7 @@
     font-size: 32px;
     font-weight: 700;
     margin: 0 auto 16px;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .profile-card-name {
@@ -429,7 +429,7 @@
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(180deg, #06b6d4 0%, #ec4899 100%);
+    background: linear-gradient(180deg, #14b8a6 0%, #ec4899 100%);
 }
 
 .timeline-modern-item {
@@ -444,13 +444,13 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-size: 18px;
-    box-shadow: 0 4px 12px rgba(6, 182, 212, 0.3);
+    box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
 }
 
 .timeline-modern-content {

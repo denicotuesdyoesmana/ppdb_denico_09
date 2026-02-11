@@ -31,22 +31,22 @@
 
 <div class="row g-3">
     <div class="col-12 col-lg-4">
-        <div class="card">
+        <div class="card card-modern">
             <div class="card-body text-center">
                 <?php if($fotoDisplay): ?>
                     <img src="<?php echo e(asset('storage/' . $fotoDisplay)); ?>" alt="Foto Profil" class="rounded-circle mb-3" style="width:110px;height:110px;object-fit:cover;">
                 <?php elseif($user && $user->avatar): ?>
                     <img src="<?php echo e(asset('storage/' . $user->avatar)); ?>" alt="avatar" class="rounded-circle mb-3" style="width:110px;height:110px;object-fit:cover;">
                 <?php else: ?>
-                    <div class="user-avatar mb-3" style="width:110px;height:110px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:32px;background:#e9ecef;"><?php echo e(strtoupper(substr($user->name ?? 'U', 0, 1))); ?></div>
+                    <div class="user-avatar user-avatar-lg mb-3" style="width:110px;height:110px;font-size:32px;"><?php echo e(strtoupper(substr($user->name ?? 'U', 0, 1))); ?></div>
                 <?php endif; ?>
 
                 <h4 class="mb-0"><?php echo e(optional($profileData)->nama_lengkap ?? $user->name ?? 'Pengguna'); ?></h4>
                 <p class="text-muted"><?php echo e(optional($profileData)->nisn ?? '-'); ?></p>
 
                 <div class="d-grid gap-2 mt-3">
-                    <a href="<?php echo e(route('profil.edit')); ?>" class="btn btn-primary"><i class="fas fa-edit me-1"></i>Edit Profil</a>
-                    <a href="<?php echo e(route('password.change')); ?>" class="btn btn-outline-secondary"><i class="fas fa-key me-1"></i>Ubah Password</a>
+                    <a href="<?php echo e(route('profil.edit')); ?>" class="btn btn-modern btn-modern-primary"><i class="fas fa-edit me-1"></i>Edit Profil</a>
+                    <a href="<?php echo e(route('password.change')); ?>" class="btn btn-modern btn-modern-outline"><i class="fas fa-key me-1"></i>Ubah Password</a>
                 </div>
             </div>
         </div>
@@ -74,8 +74,8 @@
     </div>
 
     <div class="col-12 col-lg-8">
-        <div class="card mb-3">
-            <div class="card-header">
+        <div class="card mb-3 card-modern">
+            <div class="card-header gradient-bg text-white">
                 <h5 class="mb-0">Tentang Saya</h5>
             </div>
             <div class="card-body">
@@ -83,8 +83,8 @@
             </div>
         </div>
 
-        <div class="card mb-3">
-            <div class="card-header">
+        <div class="card mb-3 card-modern">
+            <div class="card-header gradient-bg text-white">
                 <h5 class="mb-0">Detail Personal</h5>
             </div>
             <div class="card-body">
@@ -162,8 +162,8 @@
             </div>
         </div>
 
-        <div class="card">
-            <div class="card-header">
+        <div class="card card-modern">
+            <div class="card-header gradient-bg text-white">
                 <h5 class="mb-0">Aktivitas Terakhir</h5>
             </div>
             <div class="card-body">
@@ -176,7 +176,7 @@
                                     <div class="text-muted small"><?php echo e($doc->created_at->diffForHumans()); ?></div>
                                 </div>
                                 <div>
-                                    <a href="<?php echo e(route('user.dokumen.download', $doc->id)); ?>" class="btn btn-sm btn-outline-primary">Download</a>
+                                    <a href="<?php echo e(route('user.dokumen.download', $doc->id)); ?>" class="btn btn-sm btn-modern btn-modern-outline">Download</a>
                                 </div>
                             </li>
                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); if ($__empty_1): ?>

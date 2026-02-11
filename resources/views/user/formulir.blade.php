@@ -120,7 +120,7 @@
 
                     <div class="d-grid gap-2 gap-md-3">
                         @if(!$isSubmitted)
-                            <button type="submit" class="btn btn-primary btn-lg">
+                            <button type="submit" class="btn btn-modern btn-modern-primary btn-lg">
                                 <i class="fas fa-save me-2"></i>Simpan Formulir
                             </button>
                         @endif

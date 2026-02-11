@@ -16,7 +16,7 @@ class AddTransferMethodSeeder extends Seeder
         // Add payment methods if they don't exist
         $methods = [
             ['kode' => 'tunai', 'label' => 'Tunai'],
-            ['kode' => 'transfer', 'label' => 'Transfer Bank'],
+            ['kode' => 'transfer_bank', 'label' => 'Transfer Bank'],
             ['kode' => 'kartu_kredit', 'label' => 'Kartu Kredit'],
             ['kode' => 'e_wallet', 'label' => 'E-Wallet (GCash/GoPay)'],
         ];

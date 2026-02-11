@@ -28,11 +28,11 @@
     <?php endif; ?>
 
     <!-- Siswa List Card -->
-    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1); overflow: hidden;">
+    <div style="background: white; border-radius: 12px; box-shadow: 0 4px 12px rgba(20, 184, 166, 0.1); overflow: hidden;">
         <div style="overflow-x: auto;">
             <table style="width: 100%; border-collapse: collapse;">
                 <thead>
-                    <tr style="background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%); color: white;">
+                    <tr style="background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); color: white;">
                         <th style="padding: 15px; text-align: left; color: white; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">No</th>
                         <th style="padding: 15px; text-align: left; color: white; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">Nama Siswa</th>
                         <th style="padding: 15px; text-align: left; color: white; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px;">NISN</th>
@@ -57,7 +57,7 @@
                             </td>
                             <td style="padding: 15px; color: #1f2937;"><?php echo e($item->nisn); ?></td>
                             <td style="padding: 15px; color: #1f2937;">
-                                <span style="display: inline-block; padding: 6px 12px; background: rgba(99, 102, 241, 0.15); color: #6366f1; border-radius: 6px; font-weight: 600; font-size: 12px;">
+                                <span style="display: inline-block; padding: 6px 12px; background: rgba(20, 184, 166, 0.15); color: #14b8a6; border-radius: 6px; font-weight: 600; font-size: 12px;">
                                     <?php echo e($totalDokumen); ?> Dokumen
                                 </span>
                             </td>
@@ -74,7 +74,7 @@
                                 </div>
                             </td>
                             <td style="padding: 15px;">
-                                <a href="<?php echo e(route('admin.verifikasi.siswa', $item->id)); ?>" style="padding: 8px 16px; background: linear-gradient(135deg, #6366f1 0%, #818cf8 100%); color: white; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(99, 102, 241, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
+                                <a href="<?php echo e(route('admin.verifikasi.siswa', $item->id)); ?>" style="padding: 8px 16px; background: linear-gradient(135deg, #14b8a6 0%, #5eead4 100%); color: white; text-decoration: none; border-radius: 6px; font-size: 12px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; transition: all 0.3s;" onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 4px 12px rgba(20, 184, 166, 0.3)'" onmouseout="this.style.transform=''; this.style.boxShadow=''">
                                     <i class="fas fa-folder-open"></i> Lihat Dokumen
                                 </a>
                             </td>
